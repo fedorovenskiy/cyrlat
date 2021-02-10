@@ -1,16 +1,13 @@
 #include <iostream>
 #include <string>
-#include <locale.h>
 using namespace std;
 
 int main ()
 {
 	bool lat=false;
 	bool cyr=false;
-	setlocale(LC_ALL,"");
 	char x;
 	cout << "enter strange symbol" << endl; cin >> x;
-	//cout << x << endl;
 	string latalph="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	string cyralph="абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
 	for (int i=0; i<=51; i++)
