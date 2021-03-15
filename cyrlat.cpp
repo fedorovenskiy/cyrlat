@@ -4,21 +4,27 @@ using namespace std;
 
 int main ()
 {
-	bool lat=false;
-	bool cyr=false;
-	char x;
-	cout << "enter strange symbol" << endl; cin >> x;
-	string latalph="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	string cyralph="абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+        std::ios_base::sync_with_stdio(false);
+	std::wcin.imbue(std::locale("ru_RU.UTF-8"));
+	wstring x;
+	wcout << "enter strange symbol" << endl; wcin >> x;
+	int lng=x.size();
+	wstring latalph=L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	wstring cyralph=L"абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+	for (int l=0; l<=lng-1; l++)
+	  {
+	bool s=false;
 	for (int i=0; i<=51; i++)
 	{
-		if (latalph[i]==x) { lat=true; break; }
+	  if (latalph[i]==x[l]) { wcout << "L"; s=true; }
 	}
 	for (int j=0; j<=65; j++)
 	{
-		if (cyralph[j]==x) { cyr=true; break; }
+	  if (cyralph[j]==x[l]) { wcout << "C"; s=true; }
 	}
-	if (lat==true) { cout << "latin" << endl; }
-	if (cyr==true) { cout << "cyryll" << endl; }
-	if (lat==false && cyr==false) { cout << "non-latin-nor-cyrill" << endl; }
+	if(s==false) {wcout << "N"; }
+	
+	  }
+	wcout << endl;
+	return 0;
 }
